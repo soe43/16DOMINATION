@@ -1,30 +1,37 @@
 var button=document.getElementById("b");
 var listTag=document.getElementsByTagName("LI");
+var heading=document.getElementById("h");
 
 //adds an element to the list when button is clicked
 var addToList=function(e){
     var list=document.getElementById("thelist");
-    var item=document.createElement("LI");
-    item.innerHTML="item "+listTag.length;
+    var item=document.createElement("LI")
     list.appendChild(item);
     addListeners(item); //add event listeners to newly created list element
+    var listElements = document.getElementsByTagName("li");
+    for (var i = 0; i < listElements.length; i++){  //renumbers the list after adding an element
+	listElements[i].innerHTML="item "+i;
+	addListeners(listElements[i]);
+    }
 };
 
 //changes the heading at the top to contain the text of the item when mouse goes over the item
 var changeHeading=function(e){
-    var heading=document.getElementById("h");
     heading.innerHTML=this.innerHTML;
 };
 
 //heading goes back to "Hello World" when the mouse is no longer over an item in the list
 var revert=function(e){
-    var heading=document.getElementById("h");
     heading.innerHTML="Hello World!";
 };
 
 //removes an item on the list if clicked
 var removeListItem=function(e){
-    this.remove()
+    this.remove();
+    var listElements=document.getElementsByTagName("li");
+    for(i = 0; i < listElements.length; i++){ //keeps list items in numerical order after removal
+	listElements[i].innerHTML = "item "+i;
+    } 
 };
 
 //add event listener to button
