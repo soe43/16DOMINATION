@@ -12,12 +12,14 @@ var fibonacci=function(n){
     }
 }
 
+var i=8;
 //adds an element to the list when button is clicked
 var addToList=function(e){
     var list=document.getElementById("thelist");
     var item=document.createElement("LI")
-    item.innerHTML="item "+listTag.length;
+    item.innerHTML="item "+i;
     list.appendChild(item);
+    i++;
     addListeners(item); //add event listeners to newly created list element
 };
 
@@ -33,6 +35,7 @@ var revert=function(e){
 
 //removes an item on the list if clicked
 var removeListItem=function(e){
+    i--;
     this.remove();
 };
 
