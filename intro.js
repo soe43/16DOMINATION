@@ -35,7 +35,6 @@ var revert=function(e){
 
 //removes an item on the list if clicked
 var removeListItem=function(e){
-    i--;
     this.remove();
 };
 
