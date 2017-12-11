@@ -16,13 +16,9 @@ var fibonacci=function(n){
 var addToList=function(e){
     var list=document.getElementById("thelist");
     var item=document.createElement("LI")
+    item.innerHTML="item "+listTag.length;
     list.appendChild(item);
     addListeners(item); //add event listeners to newly created list element
-    var listElements = document.getElementsByTagName("li");
-    for (var i = 0; i < listElements.length; i++){  //renumbers the list after adding an element
-	listElements[i].innerHTML="item "+i;
-	addListeners(listElements[i]);
-    }
 };
 
 //changes the heading at the top to contain the text of the item when mouse goes over the item
@@ -38,10 +34,6 @@ var revert=function(e){
 //removes an item on the list if clicked
 var removeListItem=function(e){
     this.remove();
-    var listElements=document.getElementsByTagName("li");
-    for(i = 0; i < listElements.length; i++){ //keeps list items in numerical order after removal
-	listElements[i].innerHTML = "item "+i;
-    } 
 };
 
 var c=1;
