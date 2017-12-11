@@ -1,6 +1,16 @@
 var button=document.getElementById("b");
 var listTag=document.getElementsByTagName("LI");
 var heading=document.getElementById("h");
+var button2=document.getElementById("b2");
+
+var fibonacci=function(n){
+    if(n<=2){
+	return 1;
+    }
+    else{
+	return fibonacci(n-1)+fibonacci(n-2);
+    }
+}
 
 //adds an element to the list when button is clicked
 var addToList=function(e){
@@ -33,6 +43,18 @@ var removeListItem=function(e){
 	listElements[i].innerHTML = "item "+i;
     } 
 };
+
+var c=1;
+//add fib num to list
+var addFibToList=function(e){
+    var list=document.getElementById("secondList");
+    var item=document.createElement("LI");
+    item.innerHTML=fibonacci(c);
+    c++;
+    list.appendChild(item);
+};
+
+button2.addEventListener("click", addFibToList);
 
 //add event listener to button
 button.addEventListener("click",addToList);
