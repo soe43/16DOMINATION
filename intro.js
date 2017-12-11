@@ -2,6 +2,7 @@ var button=document.getElementById("b");
 var listTag=document.getElementsByTagName("LI");
 var heading=document.getElementById("h");
 var button2=document.getElementById("b2");
+var button3=document.getElementById("b3");
 
 var fibonacci=function(n){
     if(n<=2){
@@ -11,6 +12,10 @@ var fibonacci=function(n){
 	return fibonacci(n-1)+fibonacci(n-2);
     }
 }
+
+var fermat=function(n){
+    return Math.pow(2, Math.pow(2, n)) + 1;
+};
 
 var i=8;
 //adds an element to the list when button is clicked
@@ -50,6 +55,18 @@ var addFibToList=function(e){
 
 button2.addEventListener("click", addFibToList);
 
+var count=0;
+//add fermat's nums to list3
+var addFermatToList=function(e){
+    var list=document.getElementById("fermatList");
+    var item=document.createElement("LI");
+    item.innerHTML=fermat(count);
+    count++;
+    list.appendChild(item);
+};
+
+//add listener to 3rd button
+button3.addEventListener("click", addFermatToList);
 //add event listener to button
 button.addEventListener("click",addToList);
 
